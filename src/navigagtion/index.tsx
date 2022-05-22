@@ -8,8 +8,21 @@ const FeedStack = createNativeStackNavigator();
 export default function AppStack() {
   return (
     <FeedStack.Navigator>
-      <FeedStack.Screen name="Dashboard" component={Dashboard} />
-      <FeedStack.Screen name="Details" component={Details} />
+      <FeedStack.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{
+          headerStyle: {
+            backgroundColor: '#161616',
+          },
+          title: '',
+        }}
+      />
+      <FeedStack.Screen
+        name="Details"
+        component={Details}
+        options={{headerShown: false}}
+      />
     </FeedStack.Navigator>
   );
 }
