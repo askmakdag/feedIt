@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  FlatList,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {FlatList, Image, StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import FeedService from '../services/feedService';
 import Post from '../components/post';
@@ -47,11 +41,9 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation?.push('Details')}>
+    <View style={styles.container}>
       <FlatList data={posts} renderItem={({item}) => <Post post={item} />} />
-    </TouchableOpacity>
+    </View>
   );
 }
 

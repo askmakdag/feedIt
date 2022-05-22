@@ -1,16 +1,16 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import Post from '../components/post';
+import Container from '../components/styled/container';
 
-export default function Details() {
+export default function Details({
+  route: {
+    params: {post},
+  },
+}) {
+  console.log('post: ', post);
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: 'green',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Hi</Text>
-    </View>
+    <Container>
+      <Post post={post} detailed={true} />
+    </Container>
   );
 }

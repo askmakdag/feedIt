@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text, Dimensions} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import {
   DotsThreeOutlineVertical,
   Export,
@@ -8,13 +15,29 @@ import {
   Swap,
 } from 'phosphor-react-native';
 import PostBottomInteract from './post-bottom-interact';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Post({post}) {
+export default function Post({post, detailed = false}) {
+  const navigation = useNavigation();
+
+  const navigateToDetails = () => {
+    if (!detailed) {
+      navigation?.push('Post Details', {post});
+    }
+  };
+
+  const navigateToProfile = () => {
+    navigation?.push('Profile', {user: post});
+  };
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={navigateToDetails}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Image source={{uri: post?.avatar}} style={styles.image} />
+          <TouchableOpacity onPress={navigateToProfile}>
+            <Image source={{uri: post?.avatar}} style={styles.image} />
+          </TouchableOpacity>
+
           <View>
             <Text style={styles.name}>User Name</Text>
             <Text style={styles.date}>Posted Date</Text>
@@ -34,7 +57,7 @@ export default function Post({post}) {
         <PostBottomInteract icon={<HeartStraight />} text={31} />
         <PostBottomInteract icon={<Export />} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
