@@ -17,6 +17,7 @@
     "axios-cache-adapter": "^2.7.3",
     "immer": "^9.0.14",
     "json-server": "^0.17.0",
+    "moment": "^2.29.3",
     "phosphor-react-native": "^1.1.1",
     "react": "17.0.2",
     "react-native": "0.68.2",

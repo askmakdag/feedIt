@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  Image,
   Text,
   Dimensions,
   TouchableOpacity,
@@ -16,6 +15,8 @@ import {
 } from 'phosphor-react-native';
 import PostBottomInteract from './post-bottom-interact';
 import {useNavigation} from '@react-navigation/native';
+import Avatar from './avatar';
+import moment from 'moment';
 
 export default function Post({post, detailed = false}) {
   const navigation = useNavigation();
@@ -26,21 +27,15 @@ export default function Post({post, detailed = false}) {
     }
   };
 
-  const navigateToProfile = () => {
-    navigation?.push('Profile', {user: post});
-  };
-
   return (
     <TouchableOpacity style={styles.container} onPress={navigateToDetails}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <TouchableOpacity onPress={navigateToProfile}>
-            <Image source={{uri: post?.avatar}} style={styles.image} />
-          </TouchableOpacity>
+          <Avatar uri={post?.avatar} userId={post?.userId} />
 
           <View>
-            <Text style={styles.name}>User Name</Text>
-            <Text style={styles.date}>Posted Date</Text>
+            <Text style={styles.name}>{post?.author}</Text>
+            <Text style={styles.date}>{moment(post?.createdAt).fromNow()}</Text>
           </View>
         </View>
 

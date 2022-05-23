@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, Image, StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import FeedService from '../services/feedService';
 import Post from '../components/post';
 import {Bell, MagnifyingGlass} from 'phosphor-react-native';
+import Container from '../components/styled/container';
+import {getFeedFetch} from '../store/states/feedState';
+import {useDispatch, useSelector} from 'react-redux';
 
 export default function Dashboard() {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const [posts, setPosts] = useState([]);
+  const {feed, isLoading} = useSelector(s => s.feed);
 
   useEffect(() => {
     navigation.setOptions({
@@ -29,31 +32,26 @@ export default function Dashboard() {
         </View>
       ),
     });
-
-    FeedService.getItems(1)
-      .then(res => {
-        console.log('result: ', res);
-        setPosts(res?.data);
-      })
-      .catch(err => {
-        console.log('error: ', err);
-      });
+    dispatch(getFeedFetch());
   }, []);
 
+  const handleRefresh = () => {
+    dispatch(getFeedFetch());
+  };
+
   return (
-    <View style={styles.container}>
-      <FlatList data={posts} renderItem={({item}) => <Post post={item} />} />
-    </View>
+    <Container>
+      <FlatList
+        data={feed}
+        renderItem={({item}) => <Post post={item} />}
+        refreshing={isLoading}
+        onRefresh={handleRefresh}
+      />
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#161616',
-  },
   search: {
     padding: 4,
     backgroundColor: '#484848',

@@ -3,6 +3,7 @@
     "id": 1,
     "name": "Leanne Graham",
     "username": "Bret",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Sincere@april.biz",
     "address": {
       "street": "Kulas Light",
@@ -22,6 +23,7 @@
     "id": 2,
     "name": "Ervin Howell",
     "username": "Antonette",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Shanna@melissa.tv",
     "address": {
       "street": "Victor Plains",
@@ -41,6 +43,7 @@
     "id": 3,
     "name": "Clementine Bauch",
     "username": "Samantha",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Nathan@yesenia.net",
     "address": {
       "street": "Douglas Extension",
@@ -60,6 +63,7 @@
     "id": 4,
     "name": "Patricia Lebsack",
     "username": "Karianne",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Julianne.OConner@kory.org",
     "address": {
       "street": "Hoeger Mall",
@@ -79,6 +83,7 @@
     "id": 5,
     "name": "Chelsey Dietrich",
     "username": "Kamren",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Lucio_Hettinger@annie.ca",
     "address": {
       "street": "Skiles Walks",
@@ -98,6 +103,7 @@
     "id": 6,
     "name": "Mrs. Dennis Schulist",
     "username": "Leopoldo_Corkery",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Karley_Dach@jasper.info",
     "address": {
       "street": "Norberto Crossing",
@@ -117,6 +123,7 @@
     "id": 7,
     "name": "Kurtis Weissnat",
     "username": "Elwyn.Skiles",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Telly.Hoeger@billy.biz",
     "address": {
       "street": "Rex Trail",
@@ -136,6 +143,7 @@
     "id": 8,
     "name": "Nicholas Runolfsdottir V",
     "username": "Maxime_Nienow",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Sherwood@rosamond.me",
     "address": {
       "street": "Ellsworth Summit",
@@ -155,6 +163,7 @@
     "id": 9,
     "name": "Glenna Reichert",
     "username": "Delphine",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Chaim_McDermott@dana.io",
     "address": {
       "street": "Dayna Park",
@@ -174,6 +183,7 @@
     "id": 10,
     "name": "Clementina DuBuque",
     "username": "Moriah.Stanton",
+    "avatar": "https://i.pravatar.cc/300",
     "email": "Rey.Padberg@karina.biz",
     "address": {
       "street": "Kattie Turnpike",
