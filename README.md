@@ -26,8 +26,23 @@ sdk.dir = /Users/USERNAME/Library/Android/sdk
 ```
 
 ***
+### 2. Set Your Local IP For JSON Server
 
-### 2. Start JSON Server
+Go to the file in path: 
+
+```
+src/helpers/axios.js
+```
+
+and change the YOUR_LOCAL_IP with your device' s local IP (192.168.1.XX)
+
+```
+const API_URL = 'http:/YOUR_LOCAL_IP:3000';
+```
+
+Since we are using a local JSON Server, it is necessary!
+
+### 3. Start JSON Server
 
 ```
 json-server --host YOUR_LOCAL_IP feedIt_db.js 
