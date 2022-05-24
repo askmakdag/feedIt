@@ -1,15 +1,22 @@
 import React, {useEffect} from 'react';
-import {FlatList, Image, StyleSheet, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Post from '../components/post';
 import {Bell, MagnifyingGlass} from 'phosphor-react-native';
 import Container from '../components/styled/container';
-import {getFeedFetch} from '../store/states/feedState';
+import {getAddFeed, getFeedFetch} from '../store/states/feedState';
 import {useDispatch, useSelector} from 'react-redux';
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  // @ts-ignore
   const {feed, isLoading} = useSelector(s => s.feed);
 
   useEffect(() => {
@@ -33,10 +40,25 @@ export default function Dashboard() {
       ),
     });
     dispatch(getFeedFetch());
-  }, []);
+  }, [dispatch, navigation]);
 
   const handleRefresh = () => {
     dispatch(getFeedFetch());
+  };
+
+  const handleLoadMore = () => {
+    dispatch(getAddFeed());
+  };
+
+  const renderFooter = () => {
+    return (
+      <ActivityIndicator
+        animating
+        color="gray"
+        size="small"
+        style={{marginVertical: 40}}
+      />
+    );
   };
 
   return (
@@ -46,6 +68,8 @@ export default function Dashboard() {
         renderItem={({item}) => <Post post={item} />}
         refreshing={isLoading}
         onRefresh={handleRefresh}
+        onEndReached={handleLoadMore}
+        ListFooterComponent={renderFooter}
       />
     </Container>
   );

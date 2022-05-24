@@ -7,7 +7,6 @@ export default function Details({
     params: {post},
   },
 }) {
-  console.log('post: ', post);
   return (
     <Container>
       <Post post={post} detailed={true} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -20,6 +20,17 @@ import moment from 'moment';
 
 export default function Post({post, detailed = false}) {
   const navigation = useNavigation();
+  const [body, setBody] = useState('');
+
+  useEffect(() => {
+    try {
+      if (!detailed && post.body.length > 100) {
+        setBody(post.body.substring(0, 100) + '...');
+      } else {
+        setBody(post.body);
+      }
+    } catch (e) {}
+  }, [post, detailed]);
 
   const navigateToDetails = () => {
     if (!detailed) {
@@ -43,7 +54,7 @@ export default function Post({post, detailed = false}) {
       </View>
 
       <View style={styles.bodyContainer}>
-        <Text style={styles.body}>{post?.body}</Text>
+        <Text style={styles.body}>{body}</Text>
       </View>
 
       <View style={styles.footerContainer}>

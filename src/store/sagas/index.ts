@@ -1,9 +1,9 @@
 import {all, call, spawn} from 'redux-saga/effects';
-import {fetchPostFeedWatcher} from './feedSaga/watchers';
+import {fetchPostFeedWatcher, getAddFeedWatcher} from './feedSaga/watchers';
 import {fetchProfileFeedWatcher} from './profileSaga/watchers';
 
 export function* rootSaga() {
-  const feedSagas = [fetchPostFeedWatcher];
+  const feedSagas = [fetchPostFeedWatcher, getAddFeedWatcher];
   const profileSagas = [fetchProfileFeedWatcher];
 
   yield all(

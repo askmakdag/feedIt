@@ -2,7 +2,7 @@ import axios from 'axios';
 import {setupCache} from 'axios-cache-adapter';
 
 // Use your local ip for the API_URL
-const API_URL = 'http://192.168.1.39:3000';
+const API_URL = 'http://192.168.1.43:3000';
 
 // Create `axios-cache-adapter` instance
 const cache = setupCache({
