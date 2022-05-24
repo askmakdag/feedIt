@@ -68,3 +68,7 @@ npx react-native run-ios
 # ANDROID
 npx react-native run-android
 ```
+
+
+https://user-images.githubusercontent.com/37984694/170118485-6a1612bb-5787-4185-a1ef-ccf78e676f85.mp4
+
