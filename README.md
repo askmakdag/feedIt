@@ -1,5 +1,19 @@
 # FEEDIT
 
+An experimental React Native project
+
+### Important libraries and versions:
+<ul>
+      <li>React (17.0.2)</li>
+      <li>React Native (0.68.2)</li>
+      <li>React Navigation (6)</li>
+      <li>Redux Saga (1.1.3)</li>
+      <li>Redux Toolkit (1.8.1)</li>
+      <li>Styled Components (5.3.5)</li>
+      <li>Typescript (4.4.4)</li>
+      <li>Json Server (0.17.0)</li>
+  </ul>
+
 ## Prerequisites
 ***
 
@@ -34,7 +48,7 @@ Go to the file in path:
 src/helpers/axios.js
 ```
 
-and change the YOUR_LOCAL_IP with your device' s local IP (192.168.1.XX)
+and replace YOUR_LOCAL_IP with your device' s local IP (192.168.1.XX)
 
 ```
 const API_URL = 'http:/YOUR_LOCAL_IP:3000';
