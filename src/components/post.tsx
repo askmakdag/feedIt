@@ -15,11 +15,18 @@ import {
 } from 'phosphor-react-native';
 import PostBottomInteract from './post-bottom-interact';
 import {useNavigation} from '@react-navigation/native';
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Avatar from './avatar';
 import moment from 'moment';
+import {PostModel} from '../models';
 
-export default function Post({post, detailed = false}) {
-  const navigation = useNavigation();
+interface PostComponent {
+  post: PostModel;
+  detailed?: boolean;
+}
+
+export default function Post({post, detailed = false}: PostComponent) {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const [body, setBody] = useState('');
 
   useEffect(() => {
@@ -34,7 +41,7 @@ export default function Post({post, detailed = false}) {
 
   const navigateToDetails = () => {
     if (!detailed) {
-      navigation?.push('Post Details', {post});
+      navigation?.push('Details', {post});
     }
   };
 

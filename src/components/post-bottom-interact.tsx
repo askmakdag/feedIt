@@ -2,7 +2,17 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import FeedItPhosphorIcon from './feedit-phosphor-icon';
 
-export default function PostBottomInteract({icon, color = '#A5A5A5', text}) {
+interface PostBottomInteractModel {
+  icon: JSX.Element;
+  color?: string;
+  text?: number;
+}
+
+export default function PostBottomInteract({
+  icon,
+  color = '#A5A5A5',
+  text,
+}: PostBottomInteractModel) {
   return (
     <View style={styles.container}>
       <FeedItPhosphorIcon

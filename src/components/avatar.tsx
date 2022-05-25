@@ -1,10 +1,16 @@
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {useDispatch} from 'react-redux';
 import {getProfileFetch} from '../store/states/profileState';
+import {useAppDispatch} from '../hooks/store-hooks';
+import {AvatarModel} from '../models';
 
-export default function Avatar({uri, userId, size = 45, round = true}) {
-  const dispatch = useDispatch();
+export default function Avatar({
+  uri,
+  userId,
+  size = 45,
+  round = true,
+}: AvatarModel) {
+  const dispatch = useAppDispatch();
   const style = styles(size, round);
   const navigateToProfile = () => {
     dispatch(getProfileFetch(userId));

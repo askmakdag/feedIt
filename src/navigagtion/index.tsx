@@ -1,10 +1,21 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import Dashboard from '../views/dashboard';
 import Details from '../views/details';
 import Profile from '../views/profile';
+import {PostModel} from '../models';
 
-const FeedStack = createNativeStackNavigator();
+type FeedStackParamList = {
+  Dashboard: undefined;
+  Details: {post: PostModel};
+  Profile: undefined;
+};
+
+const FeedStack = createNativeStackNavigator<FeedStackParamList>();
+export type ScreenProps = NativeStackScreenProps<FeedStackParamList, 'Details'>;
 
 export default function AppStack() {
   return (
@@ -20,7 +31,7 @@ export default function AppStack() {
         }}
       />
       <FeedStack.Screen
-        name="Post Details"
+        name="Details"
         component={Details}
         options={{
           headerStyle: {

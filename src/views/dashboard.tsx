@@ -11,13 +11,12 @@ import Post from '../components/post';
 import {Bell, MagnifyingGlass} from 'phosphor-react-native';
 import Container from '../components/styled/container';
 import {getAddFeed, getFeedFetch} from '../store/states/feedState';
-import {useDispatch, useSelector} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '../hooks/store-hooks';
 
 export default function Dashboard() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigation = useNavigation();
-  // @ts-ignore
-  const {feed, isLoading} = useSelector(s => s.feed);
+  const {feed, isLoading} = useAppSelector(s => s.feed);
 
   useEffect(() => {
     navigation.setOptions({

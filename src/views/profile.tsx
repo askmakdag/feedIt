@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import Container from '../components/styled/container';
 import Avatar from '../components/avatar';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+import {useAppSelector} from '../hooks/store-hooks';
 
 export default function Profile() {
   const navigation = useNavigation();
-  const {profile} = useSelector(s => s?.profile);
+  const {profile} = useAppSelector(s => s?.profile);
   const [following, setFollowing] = useState(false);
   const {street, suite, city, zipcode} = profile.address;
 
@@ -15,7 +15,7 @@ export default function Profile() {
     navigation.setOptions({
       headerTitle: profile?.username,
     });
-  }, []);
+  }, [navigation, profile]);
 
   return (
     <Container>
