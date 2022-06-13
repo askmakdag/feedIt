@@ -1,9 +1,11 @@
 import {takeLatest} from 'redux-saga/effects';
 import {addMoreFeed, fetchPostFeed} from './handlers';
+import {getAddFeed, getFeedFetch} from '../../states/feedState';
 
 export function* fetchPostFeedWatcher() {
-  yield takeLatest('feed/getFeedFetch', fetchPostFeed);
+  yield takeLatest(getFeedFetch, fetchPostFeed);
 }
+
 export function* getAddFeedWatcher() {
-  yield takeLatest('feed/getAddFeed', addMoreFeed);
+  yield takeLatest(getAddFeed, addMoreFeed);
 }

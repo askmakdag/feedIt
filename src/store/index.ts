@@ -1,4 +1,10 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  configureStore,
+  Dispatch,
+  Middleware,
+} from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import feedReducer from './states/feedState';
 import profileReducer from './states/profileState';
@@ -6,12 +12,18 @@ import {rootSaga} from './sagas';
 
 const saga = createSagaMiddleware();
 
+const middleware: Middleware<any, any, Dispatch<AnyAction>>[] = [saga];
+
+if (__DEV__) {
+  middleware.push(logger);
+}
+
 export const store = configureStore({
   reducer: {
     feed: feedReducer,
     profile: profileReducer,
   },
-  middleware: [saga],
+  middleware,
 });
 
 saga.run(rootSaga);

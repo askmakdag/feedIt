@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../index';
-import {PostModel} from '../../models/feed';
+import {PostModel} from '../../models';
 
 // Define a type for the slice state
 interface FeedSlice {
